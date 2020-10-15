@@ -21,9 +21,9 @@ def dissimilar_asymmetric(row):
 	for i in range(1,n):
 		li = []
 		for j in range(i):
-			if(row[i] == row[j] and row[i] == "1" ):
+			if(row[i] == row[j] and row[i] == 1 ):
 				li.append(0)
-			elif (row[i] == row[j] and row[i] == "1") :
+			elif (row[i] == row[j] and row[i] == 0) :
 				li.append(-1)
 			else:
 				li.append(1)
@@ -84,16 +84,18 @@ def dissimilar_matrix(attributes,type_of):
 
 	#		t1				t2			t3
 	# [ [[], [], [] ] ,[ [],[],[] ], [[],[],[]] ]
-
 	final_matrix = []
 
 	l = len(attributes)
-	for i in range(0,l):
+	
+	for i in range(0,l-1):
 		li = []
 		for j in range(0,i+1):
+			
 			dist = 0
 			n = l
 			for att in init_matrix:
+				
 				if( att[i][j] == -1 ):
 					n= n-1
 				else:
@@ -106,12 +108,13 @@ def dissimilar_matrix(attributes,type_of):
 # main function
 if __name__ == '__main__':
 
-	# t1 = ['code A','code B','code C','code A']
-	# t2 = ['excellent','fair','good','excellent', {'excellent':3,'fair':1,'good':2}  ]
-	# t3 = [45,22,64,28]
+	# t1 = ['white','brown','black','black']
+	# t2 = ['small','medium','small','large', {'large':3,'small':1,'medium':2}  ]
+	# t3 = ['1','0','1','0']
+	# t4 = [65,60,65,70]
 	
-	# attributes = {'test1':t1,'test2':t2,'test3':t3}
-	# type_of = {'test1':'nominal','test2':'ordinal','test3':'numeric'}
+	# attributes = {'test1':t1,'test2':t2,'test3':t3,'test4':t4}
+	# type_of = {'test1':'nominal','test2':'ordinal','test3':'assymetric_binary','test4':'numeric'}
 
 	attr = {1:'nominal',2:'assymetric_binary',3:'symmmetric_binary',4:'numeric',5:'ordinal'}
 	attributes = {}
@@ -130,16 +133,22 @@ if __name__ == '__main__':
 			li.append( input("Enter value for row {}: ".format(x+1)) )
 		if val == 4:
 			li = [int(a) for a in li]
-		if val == 5:
+		elif val == 5:
 			new_li = {}
 			se = set(li)
 			for j in se:
 				rnk = int(input("Provide rank of {}: ".format(j)))
 				new_li[j] = rnk
 			li.append(new_li)
-
+		elif val == 2:
+			se = set(li)
+			for i in se:
+				x = int(input("0/1 for {}: ".format(i) ))
+				li = [ x for i in li ]
 		attributes[name] = li
 		print()
+
+	for i in 
 
 
 	matr = dissimilar_matrix(attributes,type_of)
