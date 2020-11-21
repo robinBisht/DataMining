@@ -108,47 +108,47 @@ def dissimilar_matrix(attributes,type_of):
 # main function
 if __name__ == '__main__':
 
-	# t1 = ['white','brown','black','black']
-	# t2 = ['small','medium','small','large', {'large':3,'small':1,'medium':2}  ]
-	# t3 = ['1','0','1','0']
-	# t4 = [65,60,65,70]
+	t1 = ['white','brown','black','black']
+	t2 = ['small','medium','small','large', {'large':3,'small':1,'medium':2}  ]
+	t3 = ['1','0','1','0']
+	t4 = [65,60,65,70]
 	
-	# attributes = {'test1':t1,'test2':t2,'test3':t3,'test4':t4}
-	# type_of = {'test1':'nominal','test2':'ordinal','test3':'assymetric_binary','test4':'numeric'}
+	attributes = {'test1':t1,'test2':t2,'test3':t3,'test4':t4}
+	type_of = {'test1':'nominal','test2':'ordinal','test3':'assymetric_binary','test4':'numeric'}
 
-	attr = {1:'nominal',2:'assymetric_binary',3:'symmmetric_binary',4:'numeric',5:'ordinal'}
-	attributes = {}
-	type_of = {}
-	n = int(input("Number of: attributes: "))
-	r = int(input("Number of rows: "))
-	print()
-	l =[]
-	for i in range(n):
-		li = []
-		val = int(input("Enter 1 for nominal; 2 for assymetric binary; 3 for symmmetric binary; 4 for numeric and 5 for ordinal "))
-		name = input("Enter name of attribute: ")
-		print()
-		type_of[name] = attr[val]
-		for x in range(r):
-			li.append( input("Enter value for row {}: ".format(x+1)) )
-		if val == 4:
-			li = [int(a) for a in li]
-		elif val == 5:
-			new_li = {}
-			se = set(li)
-			for j in se:
-				rnk = int(input("Provide rank of {}: ".format(j)))
-				new_li[j] = rnk
-			li.append(new_li)
-		elif val == 2:
-			se = set(li)
-			for i in se:
-				x = int(input("0/1 for {}: ".format(i) ))
-				li = [ x for i in li ]
-		attributes[name] = li
-		print()
+	# attr = {1:'nominal',2:'assymetric_binary',3:'symmmetric_binary',4:'numeric',5:'ordinal'}
+	# attributes = {}
+	# type_of = {}
+	# n = int(input("Number of: attributes: "))
+	# r = int(input("Number of rows: "))
+	# print()
+	# l =[]
+	# for i in range(n):
+	# 	li = []
+	# 	val = int(input("Enter 1 for nominal; 2 for assymetric binary; 3 for symmmetric binary; 4 for numeric and 5 for ordinal "))
+	# 	name = input("Enter name of attribute: ")
+	# 	print()
+	# 	type_of[name] = attr[val]
+	# 	for x in range(r):
+	# 		li.append( input("Enter value for row {}: ".format(x+1)) )
+	# 	if val == 4:
+	# 		li = [int(a) for a in li]
+	# 	elif val == 5:
+	# 		new_li = {}
+	# 		se = set(li)
+	# 		for j in se:
+	# 			rnk = int(input("Provide rank of {}: ".format(j)))
+	# 			new_li[j] = rnk
+	# 		li.append(new_li)
+	# 	elif val == 2:
+	# 		se = set(li)
+	# 		for i in se:
+	# 			x = int(input("0/1 for {}: ".format(i) ))
+	# 			li = [ x for i in li ]
+	# 	attributes[name] = li
+	# 	print()
 
-	for i in 
+	# # for i in 
 
 
 	matr = dissimilar_matrix(attributes,type_of)
