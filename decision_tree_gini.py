@@ -59,9 +59,9 @@ def find_entropy(df):
   
   
 def find_entropy_attribute(df,attribute):
-  lass = df.keys()[-1]   #To make the code generic, changing target variable class name
-  target_variables = df[lass].unique()  #This gives all 'Yes' and 'No'
-  variables = df[attribute].unique()    #This gives different features in that attribute (like 'Hot','Cold' in Temperature)
+  lass = df.keys()[-1]   
+  target_variables = df[lass].unique()  
+  variables = df[attribute].unique()   
   entropy2 = 0
   for variable in variables:
       entropy = 0
@@ -89,11 +89,7 @@ def get_subtable(df, node,value):
 
 
 def buildTree(df,tree=None): 
-    Class = df.keys()[-1]   #To make the code generic, changing target variable class name
-    
-    #Here we build our decision tree
-
-    #Get attribute with maximum information gain
+    Class = df.keys()[-1]
     node = find_winner(df)
     
     #Get distinct value of that attribute e.g Salary is node and Low,Med and High are values
@@ -103,9 +99,6 @@ def buildTree(df,tree=None):
     if tree is None:                    
         tree={}
         tree[node] = {}
-    
-   #We make loop to construct a tree by calling this function recursively. 
-    #In this we check if the subset is pure and stops if it is pure. 
 
     for value in attValue:
         
